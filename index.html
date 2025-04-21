@@ -5,39 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Бонусная программа</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #121212; /* Тёмный фон */
-      color: #ffffff; /* Белый текст */
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .video-panel {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .video-panel video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      height: 100vh;
     }
 
     h1 {
-      color: #007acc;
+      color: #ffffff;
       text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    p {
+      color: #cccccc;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
     }
 
     .bonus-section {
       margin-top: 40px;
-      border: 1px solid #ccc;
+      border: 1px solid #333333;
       padding: 20px;
-      border-radius: 8px;
-      background: #f7f7f7;
+      border-radius: 15px;
+      background: #1e1e1e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      transform: scale(0.95);
+      animation: zoomIn 1.2s ease-in-out forwards;
     }
 
     .bonus-header {
       font-size: 24px;
-      font-weight: bold;
-      color: #007acc;
+      font-weight: 700;
+      color: #ffffff;
       text-align: center;
+      margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeIn 1.8s ease-in-out forwards;
     }
 
     .bonus-info {
       margin-top: 10px;
       font-size: 18px;
       text-align: center;
+      color: #f0f0f0;
     }
 
     form {
@@ -45,50 +85,94 @@
     }
 
     input[type="email"] {
-      padding: 8px;
-      width: 250px;
+      padding: 10px;
+      width: 100%;
+      max-width: 300px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      background-color: #121212;
+      color: #fff;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+
+    input[type="email"]:focus {
+      border-color: #ffffff;
+      box-shadow: inset 0 3px 5px rgba(255, 255, 255, 0.3);
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 16px;
       margin-top: 10px;
-      background: #007acc;
-      color: #fff;
+      background-color: #ffffff;
+      color: #121212;
       border: none;
-      border-radius: 4px;
+      border-radius: 10px;
       cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
     }
 
     button:hover {
-      background: #005f99;
+      background-color: #eeeeee;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Логотип -->
   <header style="text-align: center; margin-bottom: 20px;">
-    <img src="img/52%20дону.png" alt="Логотип Bingls Cloth" style="max-width: 150px;">
+    <img src="img/52%20дону.png" alt="Логотип Bingls Cloth" style="max-width: 150px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); opacity: 0; animation: fadeIn 1s ease-in-out forwards;">
   </header>
+
+  <!-- Панель с видео -->
+  <div class="video-panel">
+    <video autoplay muted loop playsinline>
+      <source src="R:/сайт/pinterest-video.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
 
   <h1>Добро пожаловать!</h1>
   <p>Этот сайт создан через GitHub Pages.</p>
-  
+
   <div class="bonus-section">
     <div class="bonus-header">Бонусная программа</div>
-    <p style="text-align: center;">Зарегистрируйтесь в бонусной программе и получайте баллы за активность!</p>
-    
-    <!-- Форма регистрации -->
+    <p>Присоединяйтесь к нашей бонусной программе и получайте баллы за участие!</p>
+
     <form id="bonusForm">
       <label for="email">Введите ваш email:</label><br>
       <input type="email" id="email" name="email" required placeholder="example@mail.com"><br>
       <button type="submit">Зарегистрироваться</button>
     </form>
-    
-    <!-- Контент для зарегистрированного пользователя -->
+
     <div id="bonusContent" style="display:none;">
       <p class="bonus-info">Ваш текущий баланс бонусных баллов: <span id="bonusPoints">0</span></p>
       <div style="text-align: center;">
@@ -98,14 +182,12 @@
   </div>
 
   <script>
-    // После загрузки страницы
     document.addEventListener("DOMContentLoaded", function(){
       const bonusForm = document.getElementById("bonusForm");
       const bonusContent = document.getElementById("bonusContent");
       const bonusPointsEl = document.getElementById("bonusPoints");
       const getBonusBtn = document.getElementById("getBonus");
-      
-      // Функция для обновления отображения баллов
+
       function updateBonusDisplay(){
         let points = localStorage.getItem("bonusPoints");
         if (!points) {
@@ -113,32 +195,26 @@
         }
         bonusPointsEl.textContent = points;
       }
-      
-      // Если пользователь уже зарегистрирован
+
       if (localStorage.getItem("registeredEmail")) {
         bonusForm.style.display = "none";
         bonusContent.style.display = "block";
         updateBonusDisplay();
       }
-      
-      // Обработка регистрации
+
       bonusForm.addEventListener("submit", function(e){
         e.preventDefault();
         const email = document.getElementById("email").value;
-        // Простая регистрация: сохраняем email и выдаём стартовый бонус
         localStorage.setItem("registeredEmail", email);
-        localStorage.setItem("bonusPoints", 100); // При регистрации начисляется 100 баллов
+        localStorage.setItem("bonusPoints", 100);
         bonusForm.style.display = "none";
         bonusContent.style.display = "block";
         updateBonusDisplay();
         alert("Вы успешно зарегистрированы! Вам начислено 100 бонусных баллов.");
       });
-      
-      // Обработка получения бонуса
+
       getBonusBtn.addEventListener("click", function(){
-        // Получаем текущие баллы
         let currentPoints = parseInt(localStorage.getItem("bonusPoints"), 10) || 0;
-        // Случайное количество бонусных баллов (от 10 до 59)
         let bonusEarned = Math.floor(Math.random() * 50) + 10;
         currentPoints += bonusEarned;
         localStorage.setItem("bonusPoints", currentPoints);
