@@ -1,191 +1,207 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Бонусная программа</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Бонусная программа</title>
+    <style>
+      /* Подключение шрифта Roboto */
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Roboto', sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-    }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Roboto', sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+      }
 
-    .video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: -1;
-    }
+      /* Видеофон */
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: -1;
+      }
 
-    .video-background video {
-      min-width: 100%;
-      min-height: 100%;
-      transform: rotate(90deg);
-      object-fit: cover;
-      filter: brightness(0.3);
-    }
+      .video-background video {
+        min-width: 100%;
+        min-height: 100%;
+        transform: rotate(90deg);
+        object-fit: cover;
+        filter: brightness(0.3);
+      }
 
-    .container {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      z-index: 1;
-    }
+      /* Контейнер для основного контента */
+      .container {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        z-index: 1;
+      }
 
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-    header img {
-      max-width: 150px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    }
+      header img {
+        max-width: 150px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
 
-    p {
-      text-align: center;
-      margin-bottom: 20px;
-      font-weight: 400;
-    }
+      p {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
 
-    .bonus-section {
-      margin-top: 40px;
-      border: 1px solid #333;
-      padding: 20px;
-      border-radius: 15px;
-      background: rgba(30, 30, 30, 0.9);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    }
+      .bonus-section {
+        margin-top: 40px;
+        border: 1px solid #333;
+        padding: 20px;
+        border-radius: 15px;
+        background: rgba(30, 30, 30, 0.9);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
 
-    .bonus-header {
-      font-size: 24px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 15px;
-    }
+      .bonus-header {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 15px;
+      }
 
-    .bonus-info {
-      margin-top: 10px;
-      font-size: 18px;
-      text-align: center;
-    }
+      .bonus-info {
+        margin-top: 10px;
+        font-size: 18px;
+        text-align: center;
+      }
 
-    form {
-      text-align: center;
-    }
+      form {
+        text-align: center;
+      }
 
-    input[type="email"] {
-      padding: 10px;
-      width: 100%;
-      max-width: 300px;
-      font-size: 16px;
-      border: 1px solid #444;
-      border-radius: 10px;
-      background-color: #121212;
-      color: #fff;
-    }
+      input[type="email"] {
+        padding: 10px;
+        width: 100%;
+        max-width: 300px;
+        font-size: 16px;
+        border: 1px solid #444;
+        border-radius: 10px;
+        background-color: #121212;
+        color: #fff;
+      }
 
-    button {
-      padding: 12px 24px;
-      font-size: 16px;
-      margin-top: 10px;
-      background-color: #ffffff;
-      color: #121212;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <!-- Видеофон -->
-  <div class="video-background">
-    <video autoplay muted loop playsinline>
-      <source src="R:/сайт/pinterest-video.mp4" type="video/mp4" />
-    </video>
-  </div>
+      button {
+        padding: 12px 24px;
+        font-size: 16px;
+        margin-top: 10px;
+        background-color: #ffffff;
+        color: #121212;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Видеофон -->
+    <div class="video-background">
+      <video autoplay muted loop playsinline>
+        <source src="video/pinterest-video.mp4" type="video/mp4" />
+      </video>
+    </div>
 
-  <div class="container">
-    <header>
-      <img src="img/52%20дону.png" alt="Логотип Bingls Cloth" />
-    </header>
+    <!-- Контейнер с основным содержимым -->
+    <div class="container">
+      <header>
+        <img src="img/52%20дону.png" alt="Логотип Bingls Cloth" />
+      </header>
 
-    <h1>Добро пожаловать!</h1>
-    <p>Этот сайт создан через GitHub Pages.</p>
+      <h1>Добро пожаловать!</h1>
+      <p>Этот сайт создан через GitHub Pages.</p>
 
-    <div class="bonus-section">
-      <div class="bonus-header">Бонусная программа</div>
-      <p>Присоединяйтесь к нашей бонусной программе и получайте баллы за участие!</p>
+      <div class="bonus-section">
+        <div class="bonus-header">Бонусная программа</div>
+        <p>Присоединяйтесь к нашей бонусной программе и получайте баллы за участие!</p>
 
-      <form id="bonusForm">
-        <input type="email" id="email" name="email" required placeholder="example@mail.com" /><br />
-        <button type="submit">Зарегистрироваться</button>
-      </form>
+        <!-- Форма регистрации -->
+        <form id="bonusForm">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="example@mail.com"
+          /><br />
+          <button type="submit">Зарегистрироваться</button>
+        </form>
 
-      <div id="bonusContent" style="display: none;">
-        <p class="bonus-info">Ваш текущий баланс бонусных баллов: <span id="bonusPoints">0</span></p>
-        <div style="text-align: center;">
-          <button id="getBonus">Получить бонус</button>
+        <!-- Контент для зарегистрированного пользователя -->
+        <div id="bonusContent" style="display: none;">
+          <p class="bonus-info">
+            Ваш текущий баланс бонусных баллов:
+            <span id="bonusPoints">0</span>
+          </p>
+          <div style="text-align: center;">
+            <button id="getBonus">Получить бонус</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const bonusForm = document.getElementById("bonusForm");
-      const bonusContent = document.getElementById("bonusContent");
-      const bonusPointsEl = document.getElementById("bonusPoints");
-      const getBonusBtn = document.getElementById("getBonus");
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const bonusForm = document.getElementById("bonusForm");
+        const bonusContent = document.getElementById("bonusContent");
+        const bonusPointsEl = document.getElementById("bonusPoints");
+        const getBonusBtn = document.getElementById("getBonus");
 
-      function updateBonusDisplay() {
-        let points = localStorage.getItem("bonusPoints") || 0;
-        bonusPointsEl.textContent = points;
-      }
+        function updateBonusDisplay() {
+          let points = localStorage.getItem("bonusPoints") || 0;
+          bonusPointsEl.textContent = points;
+        }
 
-      if (localStorage.getItem("registeredEmail")) {
-        bonusForm.style.display = "none";
-        bonusContent.style.display = "block";
-        updateBonusDisplay();
-      }
+        if (localStorage.getItem("registeredEmail")) {
+          bonusForm.style.display = "none";
+          bonusContent.style.display = "block";
+          updateBonusDisplay();
+        }
 
-      bonusForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const email = document.getElementById("email").value;
-        localStorage.setItem("registeredEmail", email);
-        localStorage.setItem("bonusPoints", 100);
-        bonusForm.style.display = "none";
-        bonusContent.style.display = "block";
-        updateBonusDisplay();
-        alert("Вы успешно зарегистрированы! Вам начислено 100 бонусных баллов.");
+        bonusForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          localStorage.setItem("registeredEmail", email);
+          localStorage.setItem("bonusPoints", 100);
+          bonusForm.style.display = "none";
+          bonusContent.style.display = "block";
+          updateBonusDisplay();
+          alert("Вы успешно зарегистрированы! Вам начислено 100 бонусных баллов.");
+        });
+
+        getBonusBtn.addEventListener("click", function () {
+          let currentPoints = parseInt(localStorage.getItem("bonusPoints"), 10) || 0;
+          let bonusEarned = Math.floor(Math.random() * 50) + 10;
+          currentPoints += bonusEarned;
+          localStorage.setItem("bonusPoints", currentPoints);
+          updateBonusDisplay();
+          alert("Вы получили " + bonusEarned + " бонусных баллов!");
+        });
       });
-
-      getBonusBtn.addEventListener("click", function () {
-        let currentPoints = parseInt(localStorage.getItem("bonusPoints"), 10) || 0;
-        let bonusEarned = Math.floor(Math.random() * 50) + 10;
-        currentPoints += bonusEarned;
-        localStorage.setItem("bonusPoints", currentPoints);
-        updateBonusDisplay();
-        alert("Вы получили " + bonusEarned + " бонусных баллов!");
-      });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
