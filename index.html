@@ -1,164 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Бонусная программа</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Бонусная программа</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-      /* Общие стили */
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: 'Roboto', sans-serif;
-        background-color: #121212;
-        color: #ffffff;
-      }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
 
-      /* Видеофон */
-      .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        z-index: -1;
-      }
+    /* Видеофон */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+    }
 
-      .video-background video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.3);
-      }
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
+    }
 
-      /* Контейнер для контента */
-      .container {
-        position: relative;
-        max-width: 90%;
-        margin: 0 auto;
-        padding: 10px;
-        z-index: 1;
-      }
+    /* Контейнер контента */
+    .container {
+      position: relative;
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 10px;
+      z-index: 1;
+    }
 
-      header {
-        text-align: center;
-        margin-bottom: 15px;
-      }
+    header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
 
-      header img {
-        width: 80px;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-      }
+    header img {
+      width: 80px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 15px;
-        font-weight: 700;
-        font-size: 1.8em;
-      }
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
 
-      .bonus-section {
-        border: 1px solid #333;
-        padding: 15px;
-        border-radius: 10px;
-        background: rgba(30, 30, 30, 0.9);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-        margin-bottom: 20px;
-      }
+    .bonus-section {
+      border: 1px solid #333;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(30, 30, 30, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
 
-      .bonus-header {
-        font-size: 1.5em;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 10px;
-      }
+    .bonus-header {
+      font-size: 1.5em;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-      .bonus-info {
-        margin-top: 8px;
-        font-size: 1em;
-        text-align: center;
-      }
+    form {
+      text-align: center;
+    }
 
-      form {
-        text-align: center;
-      }
+    input[type="email"] {
+      padding: 8px;
+      width: 100%;
+      font-size: 1em;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #121212;
+      color: #fff;
+    }
 
-      input[type="email"] {
-        padding: 8px;
-        width: 100%;
-        font-size: 1em;
-        border: 1px solid #444;
-        border-radius: 8px;
-        background-color: #121212;
-        color: #fff;
-      }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffffff;
+      color: #121212;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Видеофон -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="video/pinterest-video.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
 
-      button {
-        padding: 10px 20px;
-        font-size: 1em;
-        margin-top: 10px;
-        background-color: #ffffff;
-        color: #121212;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Видеофон -->
-    <div class="video-background">
-      <video autoplay muted loop playsinline>
-        <source src="video/pinterest-video.mp4" type="video/mp4" />
-        Ваш браузер не поддерживает видео.
-      </video>
-    </div>
+  <div class="container">
+    <header>
+      <img src="img/52%20дону.png" alt="Логотип Bingls Cloth">
+    </header>
 
-    <!-- Контейнер с основным содержимым -->
-    <div class="container">
-      <header>
-        <img src="img/52%20дону.png" alt="Логотип Bingls Cloth" />
-      </header>
+    <h1>Добро пожаловать!</h1>
 
-      <h1>Добро пожаловать!</h1>
-
-      <div class="bonus-section">
-        <div class="bonus-header">Бонусная программа</div>
-        <p>Присоединяйтесь к нашей бонусной программе и получайте баллы за участие!</p>
-
-        <!-- Форма регистрации -->
-        <form id="bonusForm">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="example@mail.com"
-          /><br />
-          <button type="submit">Зарегистрироваться</button>
-        </form>
-
-        <!-- Контент для зарегистрированного пользователя -->
-        <div id="bonusContent" style="display: none;">
-          <p class="bonus-info">
-            Ваш текущий баланс бонусных баллов:
-            <span id="bonusPoints">0</span>
-          </p>
-          <div style="text-align: center;">
-            <button id="getBonus">Получить бонус</button>
-          </div>
-        </div>
+    <div class="bonus-section">
+      <div class="bonus-header">Бонусная программа</div>
+      <p>Присоединяйтесь и получайте бонусные баллы!</p>
+      <form id="bonusForm">
+        <input type="email" id="email" name="email" required placeholder="Ваш email">
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+      <div id="bonusContent" style="display: none;">
+        <p>Ваш текущий баланс: <span id="bonusPoints">0</span> баллов.</p>
+        <button id="getBonus">Получить бонус</button>
       </div>
     </div>
+  </div>
 
-    <!-- Подключение внешнего файла JavaScript -->
-    <script src="scripts.js"></script>
-  </body>
+  <!-- Подключение внешнего скрипта -->
+  <script src="scripts.js"></script>
+</body>
 </html>
