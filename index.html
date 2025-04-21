@@ -2,12 +2,12 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Бонусная программа</title>
     <style>
-      /* Подключение шрифта Roboto */
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+      /* Общие стили */
       body,
       html {
         margin: 0;
@@ -26,64 +26,62 @@
         width: 100vw;
         height: 100vh;
         overflow: hidden;
-        z-index: -1;
+        z-index: -1; /* Отправляем видео на задний план */
       }
 
       .video-background video {
-        min-width: 100%;
-        min-height: 100%;
-        transform: rotate(90deg);
-        object-fit: cover;
-        filter: brightness(0.3);
+        width: 100%; /* Заполняет всю ширину экрана */
+        height: 100%; /* Заполняет всю высоту экрана */
+        object-fit: cover; /* Обрезает и масштабирует видео */
+        filter: brightness(0.3); /* Затемняет видео для контрастности */
       }
 
-      /* Контейнер для основного контента */
+      /* Контейнер для контента */
       .container {
         position: relative;
-        max-width: 800px;
+        max-width: 90%;
         margin: 0 auto;
-        padding: 20px;
-        z-index: 1;
+        padding: 10px;
+        z-index: 1; /* Поверх видео */
       }
 
       header {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
 
       header img {
-        max-width: 150px;
+        width: 80px; /* Уменьшение размера логотипа для мобильных устройств */
         border-radius: 50%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
       }
 
       h1 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         font-weight: 700;
+        font-size: 1.8em; /* Размер текста адаптируется */
       }
 
-      /* Убрана надпись "Этот сайт создан через GitHub Pages" */
-
       .bonus-section {
-        margin-top: 40px;
         border: 1px solid #333;
-        padding: 20px;
-        border-radius: 15px;
+        padding: 15px;
+        border-radius: 10px;
         background: rgba(30, 30, 30, 0.9);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        margin-bottom: 20px;
       }
 
       .bonus-header {
-        font-size: 24px;
+        font-size: 1.5em; /* Размер текста для заголовка секции */
         font-weight: 700;
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }
 
       .bonus-info {
-        margin-top: 10px;
-        font-size: 18px;
+        margin-top: 8px;
+        font-size: 1em; /* Более компактный текст */
         text-align: center;
       }
 
@@ -92,25 +90,25 @@
       }
 
       input[type="email"] {
-        padding: 10px;
-        width: 100%;
-        max-width: 300px;
-        font-size: 16px;
+        padding: 8px;
+        width: 100%; /* Ширина адаптируется */
+        font-size: 1em;
         border: 1px solid #444;
-        border-radius: 10px;
+        border-radius: 8px;
         background-color: #121212;
         color: #fff;
       }
 
       button {
-        padding: 12px 24px;
-        font-size: 16px;
+        padding: 10px 20px;
+        font-size: 1em;
         margin-top: 10px;
         background-color: #ffffff;
         color: #121212;
         border: none;
-        border-radius: 10px;
+        border-radius: 8px;
         cursor: pointer;
+        width: 100%; /* Кнопка занимает всю ширину экрана */
       }
     </style>
   </head>
@@ -119,6 +117,7 @@
     <div class="video-background">
       <video autoplay muted loop playsinline>
         <source src="video/pinterest-video.mp4" type="video/mp4" />
+        Ваш браузер не поддерживает видео.
       </video>
     </div>
 
@@ -129,7 +128,7 @@
       </header>
 
       <h1>Добро пожаловать!</h1>
-      
+
       <div class="bonus-section">
         <div class="bonus-header">Бонусная программа</div>
         <p>Присоединяйтесь к нашей бонусной программе и получайте баллы за участие!</p>
