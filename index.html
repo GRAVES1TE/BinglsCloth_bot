@@ -17,9 +17,10 @@
       font-family: 'Roboto', sans-serif;
       background-color: #121212;
       color: #ffffff;
+      overflow-x: hidden;
     }
 
-    /* Видеофон */
+    /* Видеофон на более высоком уровне */
     .video-background {
       position: fixed;
       top: 0;
@@ -27,23 +28,30 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      z-index: -1; /* Видео фон будет позади контента */
+      z-index: 0; /* Фон на самом низком уровне */
     }
 
     .video-background video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.6); /* Яркость для видео */
+      filter: brightness(0.6);
+      opacity: 0; /* Скрыть видео до полной загрузки */
+      transition: opacity 0.5s ease-in-out;
     }
 
-    /* Контейнер контента */
+    /* Когда видео загружено, показываем его */
+    .video-background video.loaded {
+      opacity: 1;
+    }
+
+    /* Контейнер контента на более высоком слое */
     .container {
       position: relative;
-      max-width: 90%;
+      max-width: 100%;
       margin: 0 auto;
       padding: 10px;
-      z-index: 1; /* Контент будет выше фона */
+      z-index: 1; /* Контент на более высоком слое */
     }
 
     header {
@@ -52,7 +60,7 @@
     }
 
     header img {
-      width: 80px;
+      width: 60px;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     }
@@ -61,20 +69,21 @@
       text-align: center;
       font-weight: 700;
       margin-bottom: 15px;
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
 
     .bonus-section {
       border: 1px solid #333;
       padding: 15px;
       border-radius: 10px;
-      background: rgba(30, 30, 30, 0.9); /* Темный полупрозрачный фон для панели */
+      background: rgba(30, 30, 30, 0.9);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-      z-index: 2;
+      z-index: 2; /* Панель с регистрацией на более высоком уровне */
+      margin-top: 20px;
     }
 
     .bonus-header {
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: 700;
       text-align: center;
       margin-bottom: 10px;
@@ -92,6 +101,7 @@
       border-radius: 8px;
       background-color: #121212;
       color: #fff;
+      margin-bottom: 10px;
     }
 
     button {
@@ -103,14 +113,38 @@
       border-radius: 8px;
       cursor: pointer;
       width: 100%;
-      margin-top: 10px;
+    }
+
+    /* Мобильная адаптивность */
+    @media (max-width: 600px) {
+      header img {
+        width: 50px;
+      }
+
+      h1 {
+        font-size: 1.3em;
+      }
+
+      .bonus-section {
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      .bonus-header {
+        font-size: 1.2em;
+      }
+
+      input[type="email"], button {
+        font-size: 1.2em;
+        padding: 12px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Видеофон -->
   <div class="video-background">
-    <video autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline preload="auto" id="backgroundVideo">
       <source src="video/pinterest-video.mp4" type="video/mp4">
       Ваш браузер не поддерживает видео.
     </video>
@@ -136,6 +170,14 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Добавление класса loaded после того, как видео загружено
+    const video = document.getElementById("backgroundVideo");
+    video.oncanplaythrough = function() {
+      video.classList.add("loaded");
+    };
+  </script>
 
   <script src="scripts.js"></script>
 </body>
