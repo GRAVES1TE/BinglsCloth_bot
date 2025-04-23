@@ -18,6 +18,7 @@
       background-color: #121212;
       color: #ffffff;
       overflow-x: hidden;
+      transition: background-color 0.3s ease-in-out; /* Плавный переход для фона */
     }
 
     /* Видеофон */
@@ -36,8 +37,7 @@
       height: 100%;
       object-fit: cover;
       filter: brightness(0.6);
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
+      transition: filter 0.3s ease-in-out; /* Плавный переход для яркости */
     }
 
     .video-background video.loaded {
@@ -55,36 +55,39 @@
 
     header {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     header img {
-      width: 120px; /* Увеличен размер логотипа */
+      width: 120px;
       border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Тень для логотипа */
+      transition: transform 0.3s ease; /* Плавная анимация для логотипа */
+    }
+
+    header img:hover {
+      transform: scale(1.1); /* Увеличение логотипа при наведении */
     }
 
     h1 {
       text-align: center;
       font-weight: 700;
-      margin-bottom: 15px;
-      font-size: 1.5em;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Тень для текста */
     }
 
     .bonus-section {
       border: 1px solid #333;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 15px;
       background: rgba(30, 30, 30, 0.9);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-      z-index: 2;
-      margin-top: 20px;
-      width: 100%;
-      box-sizing: border-box;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Тень для панели */
+      transition: transform 0.3s ease; /* Плавное изменение для панели */
     }
 
     .bonus-header {
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: 700;
       text-align: center;
       margin-bottom: 10px;
@@ -103,18 +106,28 @@
       background-color: #121212;
       color: #fff;
       margin-bottom: 15px;
-      box-sizing: border-box; /* Убедимся, что padding не выходит за границы */
+      box-sizing: border-box;
+      transition: border-color 0.3s ease-in-out; /* Плавное изменение границ */
+    }
+
+    input[type="email"]:focus {
+      border-color: #ff6600; /* Изменение цвета границы при фокусе */
     }
 
     button {
       padding: 12px 20px;
       font-size: 1.2em;
-      background-color: #ffffff;
+      background-color: #ff6600; /* Яркая кнопка */
       color: #121212;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       width: 100%;
+      transition: background-color 0.3s ease; /* Плавное изменение фона кнопки */
+    }
+
+    button:hover {
+      background-color: #e65c00; /* Тёмно-оранжевый цвет при наведении */
     }
 
     /* Мобильная адаптивность */
@@ -162,23 +175,47 @@
     <div class="bonus-section">
       <div class="bonus-header">Бонусная программа</div>
       <p>Присоединяйтесь и получайте бонусные баллы!</p>
+      
+      <!-- Форма регистрации -->
       <form id="bonusForm">
         <input type="email" id="email" name="email" required placeholder="Ваш email">
         <button type="submit">Зарегистрироваться</button>
       </form>
+
+      <!-- Сообщение после регистрации -->
       <div id="bonusContent" style="display: none;">
-        <p>Ваш текущий баланс: <span id="bonusPoints">0</span> баллов.</p>
+        <p>Спасибо за регистрацию! Ваш email: <span id="userEmail"></span></p>
         <button id="getBonus">Получить бонус</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Добавление класса loaded после того, как видео загружено
-    const video = document.getElementById("backgroundVideo");
-    video.oncanplaythrough = function() {
-      video.classList.add("loaded");
-    };
+    const form = document.getElementById("bonusForm");
+    const bonusContent = document.getElementById("bonusContent");
+    const userEmail = document.getElementById("userEmail");
+
+    // Проверяем, если email уже сохранен
+    if (localStorage.getItem("userEmail")) {
+      form.style.display = "none"; // Прячем форму регистрации
+      bonusContent.style.display = "block"; // Показываем информацию о пользователе
+      userEmail.textContent = localStorage.getItem("userEmail"); // Отображаем email
+    }
+
+    // Обработка регистрации
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // Отменяем стандартное поведение формы
+
+      const email = document.getElementById("email").value; // Получаем email
+
+      // Сохраняем email в localStorage
+      localStorage.setItem("userEmail", email);
+
+      // Скрываем форму и показываем информацию о регистрации
+      form.style.display = "none";
+      bonusContent.style.display = "block";
+      userEmail.textContent = email; // Отображаем email
+    });
   </script>
 
   <script src="scripts.js"></script>
