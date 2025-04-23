@@ -20,7 +20,7 @@
       overflow-x: hidden;
     }
 
-    /* Видеофон на более высоком уровне */
+    /* Видеофон */
     .video-background {
       position: fixed;
       top: 0;
@@ -28,7 +28,7 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      z-index: 0; /* Фон на самом низком уровне */
+      z-index: 0;
     }
 
     .video-background video {
@@ -36,22 +36,21 @@
       height: 100%;
       object-fit: cover;
       filter: brightness(0.6);
-      opacity: 0; /* Скрыть видео до полной загрузки */
+      opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
 
-    /* Когда видео загружено, показываем его */
     .video-background video.loaded {
       opacity: 1;
     }
 
-    /* Контейнер контента на более высоком слое */
+    /* Контейнер контента */
     .container {
       position: relative;
       max-width: 100%;
       margin: 0 auto;
-      padding: 10px;
-      z-index: 1; /* Контент на более высоком слое */
+      padding: 20px;
+      z-index: 1;
     }
 
     header {
@@ -60,7 +59,7 @@
     }
 
     header img {
-      width: 60px;
+      width: 80px; /* Увеличенный размер иконки */
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     }
@@ -74,11 +73,11 @@
 
     .bonus-section {
       border: 1px solid #333;
-      padding: 15px;
+      padding: 20px;
       border-radius: 10px;
       background: rgba(30, 30, 30, 0.9);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-      z-index: 2; /* Панель с регистрацией на более высоком уровне */
+      z-index: 2;
       margin-top: 20px;
     }
 
@@ -94,19 +93,20 @@
     }
 
     input[type="email"] {
-      padding: 8px;
+      padding: 12px;
       width: 100%;
-      font-size: 1em;
+      font-size: 1.2em;
       border: 1px solid #444;
       border-radius: 8px;
       background-color: #121212;
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box; /* Убедимся, что padding не выходит за границы */
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 1em;
+      padding: 12px 20px;
+      font-size: 1.2em;
       background-color: #ffffff;
       color: #121212;
       border: none;
@@ -118,7 +118,7 @@
     /* Мобильная адаптивность */
     @media (max-width: 600px) {
       header img {
-        width: 50px;
+        width: 70px; /* Уменьшение иконки на мобильных */
       }
 
       h1 {
@@ -126,7 +126,7 @@
       }
 
       .bonus-section {
-        padding: 10px;
+        padding: 15px;
         margin-top: 10px;
       }
 
