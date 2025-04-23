@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Бонусная программа</title>
+
+  <!-- Подключение favicon.ico -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -17,6 +20,7 @@
       color: #ffffff;
     }
 
+    /* Видеофон */
     .video-background {
       position: fixed;
       top: 0;
@@ -25,14 +29,17 @@
       height: 100vh;
       overflow: hidden;
       z-index: -1;
+      background: none; /* Убираем черный фон */
     }
 
     .video-background video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: brightness(0.6); /* Яркость можно уменьшить, если нужно */
     }
 
+    /* Контейнер контента */
     .container {
       position: relative;
       max-width: 90%;
@@ -102,9 +109,10 @@
   </style>
 </head>
 <body>
+  <!-- Видеофон -->
   <div class="video-background">
     <video autoplay muted loop playsinline>
-      <source src="/BinglsCloth_bot/video/pinterest-video.mp4" type="video/mp4">
+      <source src="video/pinterest-video.mp4" type="video/mp4">
       Ваш браузер не поддерживает видео.
     </video>
   </div>
@@ -130,6 +138,7 @@
     </div>
   </div>
 
+  <!-- Подключение внешнего скрипта -->
   <script src="scripts.js"></script>
 </body>
 </html>
